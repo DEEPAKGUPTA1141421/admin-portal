@@ -1,0 +1,308 @@
+import type { LucideIcon } from "lucide-react";
+import {
+  LayoutDashboard,
+  Package,
+  Store,
+  Users,
+  ShoppingCart,
+  Warehouse,
+  CreditCard,
+  Truck,
+  RotateCcw,
+  Megaphone,
+  Star,
+  FileText,
+  LifeBuoy,
+  Landmark,
+  BarChart3,
+  Bell,
+  ShieldCheck,
+  Settings,
+  AlertTriangle,
+} from "lucide-react";
+
+export interface NavLeaf {
+  title: string;
+  href: string;
+}
+
+export interface NavGroup {
+  title: string;
+  icon: LucideIcon;
+  href: string;
+  items: NavLeaf[];
+}
+
+const slugify = (s: string) =>
+  s
+    .toLowerCase()
+    .replace(/&/g, "and")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/(^-|-$)/g, "");
+
+function group(title: string, icon: LucideIcon, base: string, leaves: string[]): NavGroup {
+  return {
+    title,
+    icon,
+    href: `/${base}/${slugify(leaves[0])}`,
+    items: leaves.map((l) => ({ title: l, href: `/${base}/${slugify(l)}` })),
+  };
+}
+
+export const NAV: NavGroup[] = [
+  group("Dashboard", LayoutDashboard, "dashboard", [
+    "Overview",
+    "Real-time Operations",
+    "Alerts",
+  ]),
+  group("Catalog", Package, "catalog", [
+    "Products",
+    "Product Approval",
+    "Categories",
+    "Subcategories",
+    "Brands",
+    "Attributes",
+    "Attribute Sets",
+    "Product Variants",
+    "Collections",
+    "Tags",
+    "Product Media",
+    "Product Bundles",
+    "Related Products",
+    "Product Questions",
+    "Product Reviews",
+  ]),
+  group("Sellers", Store, "sellers", [
+    "Seller Applications",
+    "Seller Verification",
+    "Seller Profiles",
+    "Seller Documents",
+    "Seller Products",
+    "Seller Inventory",
+    "Seller Orders",
+    "Seller Performance",
+    "Seller Ratings",
+    "Seller Commission",
+    "Seller Settlements",
+    "Seller Payouts",
+    "Seller Complaints",
+    "Seller Warnings",
+    "Seller Suspension",
+    "Seller Storefronts",
+  ]),
+  group("Customers", Users, "customers", [
+    "All Customers",
+    "New Customers",
+    "Customer Profiles",
+    "Customer Addresses",
+    "Customer Orders",
+    "Customer Wishlist",
+    "Customer Reviews",
+    "Customer Support",
+    "Customer Wallet",
+    "Customer Refunds",
+    "Customer Segments",
+    "Blocked Customers",
+  ]),
+  group("Orders", ShoppingCart, "orders", [
+    "All Orders",
+    "New Orders",
+    "Pending Payment",
+    "Confirmed",
+    "Processing",
+    "Packed",
+    "Ready to Ship",
+    "Shipped",
+    "Out for Delivery",
+    "Delivered",
+    "Cancelled",
+    "Failed Orders",
+    "Returned",
+    "Refunded",
+    "Order Exceptions",
+  ]),
+  group("Inventory", Warehouse, "inventory", [
+    "Inventory Overview",
+    "Stock Management",
+    "Low Stock",
+    "Out of Stock",
+    "Inventory Transfers",
+    "Stock Adjustments",
+    "Warehouses",
+    "Warehouse Stock",
+    "Stock Reservations",
+    "Inventory History",
+    "Purchase Orders",
+    "Suppliers",
+  ]),
+  group("Payments", CreditCard, "payments", [
+    "Transactions",
+    "Successful Payments",
+    "Failed Payments",
+    "Pending Payments",
+    "Payment Refunds",
+    "Payment Disputes",
+    "Chargebacks",
+    "Payment Gateways",
+    "Payment Methods",
+    "Tax Transactions",
+  ]),
+  group("Shipping & Logistics", Truck, "shipping", [
+    "Shipments",
+    "Delivery Partners",
+    "Shipping Zones",
+    "Shipping Rates",
+    "Pickup Locations",
+    "Warehouses",
+    "Delivery Status",
+    "Tracking",
+    "Failed Deliveries",
+    "Reverse Logistics",
+    "Delivery SLA",
+    "Shipping Rules",
+  ]),
+  group("Returns & Refunds", RotateCcw, "returns", [
+    "Return Requests",
+    "Return Approval",
+    "Return Pickup",
+    "Returned Products",
+    "Quality Inspection",
+    "Refund Requests",
+    "Refund Processing",
+    "Refund History",
+    "Replacement Orders",
+    "Return Reasons",
+  ]),
+  group("Marketing", Megaphone, "marketing", [
+    "Coupons",
+    "Discount Rules",
+    "Promotions",
+    "Campaigns",
+    "Flash Sales",
+    "Deals",
+    "Product Discounts",
+    "Seller Promotions",
+    "Homepage Promotions",
+    "Banners",
+    "Push Campaigns",
+    "Email Campaigns",
+    "SMS Campaigns",
+  ]),
+  group("Reviews & Ratings", Star, "reviews", [
+    "Product Reviews",
+    "Seller Reviews",
+    "Pending Reviews",
+    "Reported Reviews",
+    "Review Moderation",
+    "Ratings Analytics",
+    "Customer Questions & Answers",
+  ]),
+  group("CMS", FileText, "cms", [
+    "Homepage",
+    "Banners",
+    "Landing Pages",
+    "Navigation",
+    "Menus",
+    "Footer",
+    "Blog",
+    "FAQs",
+    "Help Center",
+    "Static Pages",
+    "SEO Settings",
+  ]),
+  group("Support", LifeBuoy, "support", [
+    "Support Dashboard",
+    "Tickets",
+    "Customer Tickets",
+    "Seller Tickets",
+    "Order Issues",
+    "Refund Issues",
+    "Escalations",
+    "Live Chat",
+    "Support Agents",
+    "Canned Responses",
+  ]),
+  group("Finance", Landmark, "finance", [
+    "Revenue",
+    "Marketplace Commission",
+    "Seller Payables",
+    "Seller Settlements",
+    "Payouts",
+    "Taxes",
+    "Invoices",
+    "Credit Notes",
+    "Refund Accounting",
+    "Financial Reports",
+  ]),
+  group("Analytics", BarChart3, "analytics", [
+    "Sales Analytics",
+    "Order Analytics",
+    "Customer Analytics",
+    "Seller Analytics",
+    "Product Analytics",
+    "Category Analytics",
+    "Inventory Analytics",
+    "Marketing Analytics",
+    "Conversion Analytics",
+    "Profitability",
+    "Cohort Analysis",
+    "Funnel Analytics",
+    "Custom Reports",
+  ]),
+  group("Notifications", Bell, "notifications", [
+    "Email Templates",
+    "SMS Templates",
+    "Push Notifications",
+    "Notification Rules",
+    "Notification Logs",
+    "Broadcast Notifications",
+  ]),
+  group("Risk & Fraud", AlertTriangle, "risk", [
+    "Risk Dashboard",
+    "Flagged Orders",
+    "Flagged Sellers",
+    "Flagged Customers",
+    "Coupon Abuse",
+    "Payment Anomalies",
+  ]),
+  group("Users & Security", ShieldCheck, "security", [
+    "Admin Users",
+    "Roles",
+    "Permissions",
+    "Teams",
+    "Login History",
+    "Session Management",
+    "Two-Factor Authentication",
+    "API Keys",
+    "Audit Logs",
+  ]),
+  group("Settings", Settings, "settings", [
+    "Marketplace Settings",
+    "General Settings",
+    "Currency",
+    "Tax Configuration",
+    "Commission Rules",
+    "Order Settings",
+    "Return Policy",
+    "Refund Policy",
+    "Shipping Settings",
+    "Payment Settings",
+    "Email Settings",
+    "SMS Settings",
+    "Notification Settings",
+    "Localization",
+    "Feature Flags",
+    "System Configuration",
+  ]),
+];
+
+export function findGroupByPath(pathname: string): { group: NavGroup; leaf: NavLeaf } | null {
+  for (const g of NAV) {
+    for (const item of g.items) {
+      if (pathname === item.href || pathname.startsWith(item.href + "/")) {
+        return { group: g, leaf: item };
+      }
+    }
+  }
+  return null;
+}
