@@ -55,7 +55,7 @@ export default function DashboardOverviewPage() {
         if (!cancelled) setKpis(live);
       })
       .catch(() => {
-        if (!cancelled) toast.info("Using demo data for some KPIs — backend unreachable");
+        if (!cancelled) toast.error("Could not load some KPIs — backend unreachable");
       });
     return () => {
       cancelled = true;

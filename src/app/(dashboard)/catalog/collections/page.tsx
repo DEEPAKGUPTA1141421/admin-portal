@@ -33,16 +33,7 @@ interface Collection {
   status: "active" | "inactive";
 }
 
-const SEED: Collection[] = [
-  { id: "COL-1", name: "Summer Essentials", description: "Breathable fashion & accessories for the summer season", productCount: 64, featured: true, status: "active" },
-  { id: "COL-2", name: "Best Sellers", description: "Top-performing products across all categories", productCount: 40, featured: true, status: "active" },
-  { id: "COL-3", name: "New Arrivals", description: "Freshly listed products from the last 30 days", productCount: 88, featured: true, status: "active" },
-  { id: "COL-4", name: "Festive Specials", description: "Curated picks for the festive season", productCount: 52, featured: false, status: "active" },
-  { id: "COL-5", name: "Under ₹499", description: "Budget-friendly products across categories", productCount: 120, featured: false, status: "active" },
-  { id: "COL-6", name: "Premium Picks", description: "High-end products from top brands", productCount: 31, featured: false, status: "active" },
-  { id: "COL-7", name: "Work From Home", description: "Office essentials and ergonomic accessories", productCount: 27, featured: false, status: "inactive" },
-  { id: "COL-8", name: "Monsoon Ready", description: "Waterproof and monsoon essential gear", productCount: 18, featured: false, status: "active" },
-];
+const SEED: Collection[] = [];
 
 export default function CollectionsPage() {
   const [collections, setCollections] = useState<Collection[]>(SEED);

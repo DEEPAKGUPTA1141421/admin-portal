@@ -34,14 +34,7 @@ interface AttributeSet {
 
 const ALL_ATTRS = ["Color", "Size", "Material", "Storage", "RAM", "Weight", "Warranty", "Pattern", "Fit", "Flavor", "Battery Life", "Screen Size"];
 
-const SEED: AttributeSet[] = [
-  { id: "AS-1", name: "Apparel — Standard", category: "Fashion", attributes: ["Color", "Size", "Material", "Fit", "Pattern"], status: "active", productCount: 210 },
-  { id: "AS-2", name: "Smartphones", category: "Electronics", attributes: ["Color", "Storage", "RAM", "Warranty", "Screen Size"], status: "active", productCount: 58 },
-  { id: "AS-3", name: "Footwear", category: "Fashion", attributes: ["Color", "Size", "Material"], status: "active", productCount: 87 },
-  { id: "AS-4", name: "Home Appliances", category: "Home", attributes: ["Color", "Warranty", "Weight"], status: "active", productCount: 64 },
-  { id: "AS-5", name: "Groceries — Packaged", category: "Grocery", attributes: ["Flavor", "Weight"], status: "active", productCount: 46 },
-  { id: "AS-6", name: "Wearables", category: "Electronics", attributes: ["Color", "Battery Life", "Warranty"], status: "inactive", productCount: 19 },
-];
+const SEED: AttributeSet[] = [];
 
 export default function AttributeSetsPage() {
   const [sets, setSets] = useState<AttributeSet[]>(SEED);

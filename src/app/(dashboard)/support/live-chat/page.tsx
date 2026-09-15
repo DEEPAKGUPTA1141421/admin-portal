@@ -28,60 +28,11 @@ interface ChatSession {
   messages: ChatMessage[];
 }
 
-const INITIAL_SESSIONS: ChatSession[] = [
-  {
-    id: "CHAT-1",
-    customerName: "Aditi Verma",
-    lastMessage: "Is my order still on the way?",
-    unread: 2,
-    waitingSince: "2 min ago",
-    messages: [
-      { id: "m1", from: "customer", text: "Hi, I placed an order yesterday and it still shows processing.", at: "10:02 AM" },
-      { id: "m2", from: "agent", text: "Hi Aditi, let me check that for you right away.", at: "10:03 AM" },
-      { id: "m3", from: "customer", text: "Is my order still on the way?", at: "10:05 AM" },
-    ],
-  },
-  {
-    id: "CHAT-2",
-    customerName: "Rohan Malhotra",
-    lastMessage: "Thanks, that resolves it!",
-    unread: 0,
-    waitingSince: "8 min ago",
-    messages: [
-      { id: "m1", from: "customer", text: "My coupon code isn't applying at checkout.", at: "9:40 AM" },
-      { id: "m2", from: "agent", text: "Could you share the coupon code you're using?", at: "9:41 AM" },
-      { id: "m3", from: "customer", text: "SAVE20", at: "9:42 AM" },
-      { id: "m4", from: "agent", text: "That coupon expired yesterday, here's a fresh one: SAVE25.", at: "9:44 AM" },
-      { id: "m5", from: "customer", text: "Thanks, that resolves it!", at: "9:45 AM" },
-    ],
-  },
-  {
-    id: "CHAT-3",
-    customerName: "Meera Nair (Seller)",
-    lastMessage: "When will my payout be processed?",
-    unread: 1,
-    waitingSince: "15 min ago",
-    messages: [
-      { id: "m1", from: "customer", text: "When will my payout be processed?", at: "9:30 AM" },
-    ],
-  },
-  {
-    id: "CHAT-4",
-    customerName: "Kabir Singh",
-    lastMessage: "The product I received is damaged.",
-    unread: 3,
-    waitingSince: "20 min ago",
-    messages: [
-      { id: "m1", from: "customer", text: "The product I received is damaged.", at: "9:20 AM" },
-      { id: "m2", from: "customer", text: "Can I get a replacement?", at: "9:21 AM" },
-      { id: "m3", from: "customer", text: "Please respond soon.", at: "9:25 AM" },
-    ],
-  },
-];
+const INITIAL_SESSIONS: ChatSession[] = [];
 
 export default function LiveChatPage() {
   const [sessions, setSessions] = useState<ChatSession[]>(INITIAL_SESSIONS);
-  const [selectedId, setSelectedId] = useState<string>(INITIAL_SESSIONS[0].id);
+  const [selectedId, setSelectedId] = useState<string>(INITIAL_SESSIONS[0]?.id ?? "");
   const [draft, setDraft] = useState("");
 
   const selectedSession = useMemo(() => sessions.find((s) => s.id === selectedId) ?? null, [sessions, selectedId]);

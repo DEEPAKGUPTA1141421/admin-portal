@@ -45,7 +45,7 @@ export default function BrandsPage() {
       const pending = await fetchPendingBrands();
       setBrands([...pending, ...MOCK_SEED]);
     } catch (e) {
-      if (e instanceof ApiError) toast.info("Using demo data — backend unreachable");
+      if (e instanceof ApiError) toast.error("Could not load data — backend unreachable");
       setBrands(MOCK_SEED);
     } finally {
       setLoading(false);

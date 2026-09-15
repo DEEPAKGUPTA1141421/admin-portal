@@ -34,7 +34,7 @@ export default function PendingPaymentsPage() {
           ...(initiated.status === "fulfilled" ? initiated.value.payments : []),
         ];
         if (pending.status === "rejected" && initiated.status === "rejected") {
-          toast.info("Using demo data — backend unreachable");
+          toast.error("Could not load data — backend unreachable");
           return;
         }
         setData(rows.map(mapPaymentSummaryToPayment));

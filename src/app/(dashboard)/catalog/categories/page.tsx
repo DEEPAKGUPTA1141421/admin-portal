@@ -42,7 +42,7 @@ export default function CategoriesPage() {
       const data = await fetchCategoryTree();
       setCategories(data.length ? data : CATEGORIES_DATA);
     } catch (e) {
-      if (e instanceof ApiError) toast.info("Using demo data — backend unreachable");
+      if (e instanceof ApiError) toast.error("Could not load data — backend unreachable");
       setCategories(CATEGORIES_DATA);
     } finally {
       setLoading(false);

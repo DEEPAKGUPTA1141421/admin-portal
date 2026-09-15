@@ -52,7 +52,7 @@ export default function AllOrdersPage() {
         const res = await fetchOrders({ page: 0, size: 100 });
         if (!cancelled) setOrders(res.orders.map(mapOrderSummaryToOrder));
       } catch {
-        if (!cancelled) toast.info("Using demo data — backend unreachable");
+        if (!cancelled) toast.error("Could not load data — backend unreachable");
       } finally {
         if (!cancelled) setLoading(false);
       }

@@ -67,7 +67,7 @@ export default function OrderDetailPage() {
         setStatusValue(mapped.status);
         setPaymentId(dto.payment?.paymentId ?? null);
       } catch {
-        if (!cancelled) toast.info("Using demo data — backend unreachable");
+        if (!cancelled) toast.error("Could not load data — backend unreachable");
       } finally {
         if (!cancelled) setLoading(false);
       }

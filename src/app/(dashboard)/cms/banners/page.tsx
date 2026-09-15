@@ -44,16 +44,7 @@ function daysFromNow(n: number) {
   return d.toISOString();
 }
 
-const BANNERS_SEED: Banner[] = [
-  { id: "BAN-1", title: "Diwali Mega Sale", image: "https://picsum.photos/seed/banner-1/800/300", placement: "homepage", status: "live", startDate: daysFromNow(-5), endDate: daysFromNow(10) },
-  { id: "BAN-2", title: "Electronics Flat 40% Off", image: "https://picsum.photos/seed/banner-2/800/300", placement: "category", status: "live", startDate: daysFromNow(-2), endDate: daysFromNow(5) },
-  { id: "BAN-3", title: "Free Shipping Weekend", image: "https://picsum.photos/seed/banner-3/800/300", placement: "checkout", status: "scheduled", startDate: daysFromNow(3), endDate: daysFromNow(6) },
-  { id: "BAN-4", title: "New Year Countdown", image: "https://picsum.photos/seed/banner-4/800/300", placement: "homepage", status: "draft", startDate: daysFromNow(20), endDate: daysFromNow(30) },
-  { id: "BAN-5", title: "Fashion Fest", image: "https://picsum.photos/seed/banner-5/800/300", placement: "category", status: "expired", startDate: daysFromNow(-40), endDate: daysFromNow(-20) },
-  { id: "BAN-6", title: "Cart Abandonment Reminder", image: "https://picsum.photos/seed/banner-6/800/300", placement: "checkout", status: "live", startDate: daysFromNow(-10), endDate: daysFromNow(15) },
-  { id: "BAN-7", title: "Republic Day Specials", image: "https://picsum.photos/seed/banner-7/800/300", placement: "homepage", status: "scheduled", startDate: daysFromNow(15), endDate: daysFromNow(22) },
-  { id: "BAN-8", title: "Home & Kitchen Clearance", image: "https://picsum.photos/seed/banner-8/800/300", placement: "category", status: "draft", startDate: daysFromNow(8), endDate: daysFromNow(18) },
-];
+const BANNERS_SEED: Banner[] = [];
 
 const emptyForm = { title: "", image: "", placement: "homepage" as BannerPlacement, status: "draft" as BannerStatus, startDate: "", endDate: "" };
 

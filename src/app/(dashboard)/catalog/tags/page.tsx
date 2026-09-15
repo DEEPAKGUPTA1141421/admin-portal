@@ -30,18 +30,7 @@ interface Tag {
 
 const COLORS = ["#ef4444", "#f59e0b", "#10b981", "#3b82f6", "#8b5cf6", "#ec4899"];
 
-const SEED: Tag[] = [
-  { id: "TAG-1", name: "Trending", color: "#ef4444", productCount: 74 },
-  { id: "TAG-2", name: "New Arrival", color: "#3b82f6", productCount: 92 },
-  { id: "TAG-3", name: "Best Seller", color: "#10b981", productCount: 61 },
-  { id: "TAG-4", name: "Limited Stock", color: "#f59e0b", productCount: 28 },
-  { id: "TAG-5", name: "Eco-Friendly", color: "#22c55e", productCount: 33 },
-  { id: "TAG-6", name: "Premium", color: "#8b5cf6", productCount: 19 },
-  { id: "TAG-7", name: "Clearance", color: "#ec4899", productCount: 45 },
-  { id: "TAG-8", name: "Editor's Pick", color: "#06b6d4", productCount: 12 },
-  { id: "TAG-9", name: "Award Winning", color: "#eab308", productCount: 8 },
-  { id: "TAG-10", name: "Made in India", color: "#f97316", productCount: 56 },
-];
+const SEED: Tag[] = [];
 
 export default function TagsPage() {
   const [tags, setTags] = useState<Tag[]>(SEED);

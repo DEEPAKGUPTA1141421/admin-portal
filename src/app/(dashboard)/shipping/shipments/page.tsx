@@ -28,29 +28,6 @@ const STATUS_OPTIONS: { value: ShipmentStatus | "ALL"; label: string }[] = [
   { value: "CANCELLED", label: "Cancelled" },
 ];
 
-// Demo fallback shown only when the backend is unreachable — there is no
-// mock dataset for this entity (the old mock model didn't have one; it
-// faked "shipments" out of Orders, which doesn't translate to the real
-// warehouse-to-warehouse batch concept).
-const DEMO_SHIPMENTS: ShipmentRow[] = [
-  {
-    id: "demo-1", shipmentNo: "SH-DEMO01", shipmentType: "INTER_HUB",
-    originWarehouseId: "", destinationWarehouseId: "",
-    originCity: "Mumbai", destinationCity: "Pune",
-    parcelCount: 42, totalWeightKg: 318.5, status: "IN_TRANSIT",
-    departureTimeEst: new Date().toISOString(), arrivalTimeEst: null,
-    createdAt: new Date().toISOString(),
-  },
-  {
-    id: "demo-2", shipmentNo: "SH-DEMO02", shipmentType: "LAST_MILE",
-    originWarehouseId: "", destinationWarehouseId: "",
-    originCity: "Bengaluru", destinationCity: "Bengaluru",
-    parcelCount: 18, totalWeightKg: 96.2, status: "DELIVERED",
-    departureTimeEst: null, arrivalTimeEst: new Date().toISOString(),
-    createdAt: new Date().toISOString(),
-  },
-];
-
 export default function ShipmentsPage() {
   const [statusFilter, setStatusFilter] = useState<ShipmentStatus | "ALL">("ALL");
   const [shipments, setShipments] = useState<ShipmentRow[]>([]);
@@ -67,10 +44,8 @@ export default function ShipmentsPage() {
       })
       .catch(() => {
         if (cancelled) return;
-        toast.info("Using demo data — backend unreachable");
-        setShipments(
-          statusFilter === "ALL" ? DEMO_SHIPMENTS : DEMO_SHIPMENTS.filter((s) => s.status === statusFilter)
-        );
+        toast.error("Could not load shipments — backend unreachable");
+        setShipments([]);
       })
       .finally(() => {
         if (!cancelled) setLoading(false);

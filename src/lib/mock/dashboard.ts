@@ -1,5 +1,4 @@
 import { ORDERS_DATA, PRODUCTS_DATA, SELLERS_DATA, CUSTOMERS_DATA, SETTLEMENTS_DATA } from "./generate";
-import { randInt, randFloat, pick } from "./seed";
 
 export interface SalesPoint {
   date: string;
@@ -8,31 +7,14 @@ export interface SalesPoint {
   orders: number;
 }
 
+// No live time-series aggregate endpoint exists yet — returns no points so
+// the chart renders its empty state instead of fabricated history.
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export function salesSeries(days: number): SalesPoint[] {
-  const out: SalesPoint[] = [];
-  const today = new Date();
-  for (let i = days - 1; i >= 0; i--) {
-    const d = new Date(today);
-    d.setDate(d.getDate() - i);
-    const base = randInt(400000, 1200000);
-    out.push({
-      date: d.toLocaleDateString("en-IN", { month: "short", day: "numeric" }),
-      gmv: base,
-      netRevenue: Math.round(base * randFloat(0.72, 0.85)),
-      orders: randInt(120, 480),
-    });
-  }
-  return out;
+  return [];
 }
 
-export const SALES_BY_CATEGORY = [
-  { name: "Mobiles & Accessories", value: randInt(800000, 2500000) },
-  { name: "Fashion", value: randInt(600000, 2000000) },
-  { name: "Electronics", value: randInt(700000, 2200000) },
-  { name: "Home & Kitchen", value: randInt(400000, 1500000) },
-  { name: "Beauty & Personal Care", value: randInt(300000, 1200000) },
-  { name: "Grocery", value: randInt(200000, 900000) },
-];
+export const SALES_BY_CATEGORY: { name: string; value: number }[] = [];
 
 export const TOP_SELLERS = [...SELLERS_DATA]
   .sort((a, b) => b.totalRevenue - a.totalRevenue)
@@ -53,29 +35,15 @@ export const ORDER_STATUS_DISTRIBUTION = [
   { name: "Pending Payment", value: ORDERS_DATA.filter((o) => o.status === "pending_payment").length },
 ];
 
-export const PAYMENT_METHOD_DISTRIBUTION = [
-  { name: "UPI", value: 42 },
-  { name: "Credit/Debit Card", value: 27 },
-  { name: "COD", value: 18 },
-  { name: "Net Banking", value: 8 },
-  { name: "Wallet", value: 5 },
-];
+export const PAYMENT_METHOD_DISTRIBUTION: { name: string; value: number }[] = [];
 
-export const GEO_SALES = [
-  { name: "Maharashtra", value: randInt(600000, 2000000) },
-  { name: "Karnataka", value: randInt(500000, 1800000) },
-  { name: "Delhi NCR", value: randInt(500000, 1700000) },
-  { name: "Tamil Nadu", value: randInt(400000, 1500000) },
-  { name: "Telangana", value: randInt(300000, 1200000) },
-  { name: "West Bengal", value: randInt(200000, 900000) },
-  { name: "Gujarat", value: randInt(200000, 900000) },
-];
+export const GEO_SALES: { name: string; value: number }[] = [];
 
 export function computeKpis() {
   const totalOrders = ORDERS_DATA.length;
   const gmv = ORDERS_DATA.reduce((s, o) => s + o.amount, 0);
   const netRevenue = Math.round(gmv * 0.8);
-  const todayOrders = randInt(80, 260);
+  const todayOrders = 0;
   const pending = ORDERS_DATA.filter((o) => o.status === "pending_payment").length;
   const processing = ORDERS_DATA.filter((o) => ["confirmed", "processing", "packed", "ready_to_ship"].includes(o.status)).length;
   const shipped = ORDERS_DATA.filter((o) => o.status === "shipped" || o.status === "out_for_delivery").length;

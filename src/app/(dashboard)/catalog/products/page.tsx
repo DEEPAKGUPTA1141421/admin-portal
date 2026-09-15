@@ -54,7 +54,7 @@ export default function ProductsPage() {
       })
       .catch(() => {
         if (cancelled) return;
-        toast.info("Using demo data — backend unreachable");
+        toast.error("Could not load data — backend unreachable");
       })
       .finally(() => {
         if (!cancelled) setLoading(false);

@@ -36,7 +36,7 @@ export default function ReturnRequestsPage() {
     setLoading(true);
     fetchReturns({ bucket: "ALL", size: 50 })
       .then((data) => setReturns(data.returns.map(mapReturnDtoToReturnRequest)))
-      .catch(() => toast.info("Using demo data — backend unreachable"))
+      .catch(() => toast.error("Could not load data — backend unreachable"))
       .finally(() => setLoading(false));
   }
 

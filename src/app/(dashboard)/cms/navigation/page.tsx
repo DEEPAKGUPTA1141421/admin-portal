@@ -28,17 +28,7 @@ interface NavItem {
   parentId: string | null;
 }
 
-const NAV_ITEMS_SEED: NavItem[] = [
-  { id: "NAV-1", label: "Electronics", link: "/category/electronics", order: 1, parentId: null },
-  { id: "NAV-2", label: "Fashion", link: "/category/fashion", order: 2, parentId: null },
-  { id: "NAV-3", label: "Home & Kitchen", link: "/category/home-kitchen", order: 3, parentId: null },
-  { id: "NAV-4", label: "Mobiles", link: "/category/electronics/mobiles", order: 1, parentId: "NAV-1" },
-  { id: "NAV-5", label: "Laptops", link: "/category/electronics/laptops", order: 2, parentId: "NAV-1" },
-  { id: "NAV-6", label: "Beauty & Personal Care", link: "/category/beauty", order: 4, parentId: null },
-  { id: "NAV-7", label: "Deals", link: "/deals", order: 5, parentId: null },
-  { id: "NAV-8", label: "Men's Wear", link: "/category/fashion/men", order: 1, parentId: "NAV-2" },
-  { id: "NAV-9", label: "Women's Wear", link: "/category/fashion/women", order: 2, parentId: "NAV-2" },
-];
+const NAV_ITEMS_SEED: NavItem[] = [];
 
 const emptyForm = { label: "", link: "", parentId: "none" };
 

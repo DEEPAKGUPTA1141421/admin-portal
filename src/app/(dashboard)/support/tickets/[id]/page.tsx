@@ -49,31 +49,16 @@ interface Attachment {
   uploadedAt: string;
 }
 
-function seedMessages(ticket: SupportTicket): ThreadMessage[] {
-  return [
-    { id: "MSG-1", author: ticket.requesterName, role: "requester", text: `Hi, I'm facing an issue: ${ticket.subject}. Could you please help?`, at: ticket.createdAt },
-    { id: "MSG-2", author: ticket.assignedAgent ?? "Support Team", role: "agent", text: "Thanks for reaching out — we're looking into this right now.", at: ticket.createdAt },
-    { id: "MSG-3", author: ticket.requesterName, role: "requester", text: "Sure, let me know if you need any more details from my side.", at: ticket.updatedAt },
-    { id: "MSG-4", author: ticket.assignedAgent ?? "Support Team", role: "agent", text: "We've escalated this internally and will update you shortly.", at: ticket.updatedAt },
-  ];
-}
-
-const SEED_ATTACHMENTS: Attachment[] = [
-  { id: "ATT-1", filename: "invoice_screenshot.png", size: "212 KB", uploadedBy: "Requester", uploadedAt: "2 days ago" },
-  { id: "ATT-2", filename: "order_receipt.pdf", size: "84 KB", uploadedBy: "Requester", uploadedAt: "2 days ago" },
-  { id: "ATT-3", filename: "chat_transcript.txt", size: "6 KB", uploadedBy: "Support Agent", uploadedAt: "1 day ago" },
-];
+const SEED_ATTACHMENTS: Attachment[] = [];
 
 export default function TicketDetailPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = use(params);
   const initialTicket = useMemo(() => TICKETS_DATA.find((t) => t.id === id) ?? null, [id]);
 
   const [ticket, setTicket] = useState<SupportTicket | null>(initialTicket);
-  const [messages, setMessages] = useState<ThreadMessage[]>(() => (initialTicket ? seedMessages(initialTicket) : []));
+  const [messages, setMessages] = useState<ThreadMessage[]>([]);
   const [reply, setReply] = useState("");
-  const [notes, setNotes] = useState<Note[]>(() => [
-    { id: "NOTE-1", author: "Ritu Sharma", text: "Checked order timeline, seems like a warehouse delay. Following up with logistics.", at: initialTicket?.updatedAt ?? new Date().toISOString() },
-  ]);
+  const [notes, setNotes] = useState<Note[]>([]);
   const [noteText, setNoteText] = useState("");
 
   if (!ticket) {

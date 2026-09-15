@@ -43,16 +43,7 @@ function daysAgoIso(n: number) {
   return d.toISOString();
 }
 
-const LANDING_PAGES_SEED: LandingPage[] = [
-  { id: "LP-1", title: "Diwali Sale 2026", slug: "diwali-sale-2026", status: "published", lastEditedAt: daysAgoIso(2), heroHeadline: "Light Up Your Diwali with Up to 70% Off", bodyCopy: "Shop the biggest festive sale across electronics, fashion, and home essentials." },
-  { id: "LP-2", title: "New Seller Signup", slug: "sell-with-us", status: "published", lastEditedAt: daysAgoIso(10), heroHeadline: "Grow Your Business with Our Marketplace", bodyCopy: "Join thousands of sellers reaching millions of customers pan-India." },
-  { id: "LP-3", title: "Electronics Superstore", slug: "electronics-superstore", status: "draft", lastEditedAt: daysAgoIso(1), heroHeadline: "Everything Electronics, One Destination", bodyCopy: "Latest smartphones, laptops, and gadgets at unbeatable prices." },
-  { id: "LP-4", title: "Republic Day Specials", slug: "republic-day-specials", status: "draft", lastEditedAt: daysAgoIso(0), heroHeadline: "Celebrate with Patriotic Deals", bodyCopy: "Special discounts across every category this Republic Day." },
-  { id: "LP-5", title: "Summer Fashion Edit", slug: "summer-fashion-edit", status: "archived", lastEditedAt: daysAgoIso(90), heroHeadline: "Beat the Heat in Style", bodyCopy: "Curated summer collection from top fashion brands." },
-  { id: "LP-6", title: "Mega Electronics Fest", slug: "mega-electronics-fest", status: "published", lastEditedAt: daysAgoIso(5), heroHeadline: "The Biggest Electronics Fest of the Year", bodyCopy: "Exchange offers, no-cost EMI, and instant discounts." },
-  { id: "LP-7", title: "Home Makeover Sale", slug: "home-makeover-sale", status: "draft", lastEditedAt: daysAgoIso(3), heroHeadline: "Transform Your Home This Season", bodyCopy: "Furniture, decor, and kitchen essentials at great prices." },
-  { id: "LP-8", title: "Monsoon Essentials", slug: "monsoon-essentials", status: "archived", lastEditedAt: daysAgoIso(120), heroHeadline: "Gear Up for the Rains", bodyCopy: "Raincoats, umbrellas, and waterproof gadgets on sale." },
-];
+const LANDING_PAGES_SEED: LandingPage[] = [];
 
 const emptyForm = { title: "", slug: "", status: "draft" as LandingStatus, heroHeadline: "", bodyCopy: "" };
 

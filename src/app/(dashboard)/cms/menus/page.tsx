@@ -31,19 +31,7 @@ interface MenuItem {
   order: number;
 }
 
-const MENU_ITEMS_SEED: MenuItem[] = [
-  { id: "MNU-1", group: "mobile", label: "Home", link: "/", order: 1 },
-  { id: "MNU-2", group: "mobile", label: "Categories", link: "/categories", order: 2 },
-  { id: "MNU-3", group: "mobile", label: "My Orders", link: "/account/orders", order: 3 },
-  { id: "MNU-4", group: "mobile", label: "Wishlist", link: "/account/wishlist", order: 4 },
-  { id: "MNU-5", group: "mobile", label: "Help & Support", link: "/support", order: 5 },
-  { id: "MNU-6", group: "account", label: "Profile", link: "/account/profile", order: 1 },
-  { id: "MNU-7", group: "account", label: "Orders", link: "/account/orders", order: 2 },
-  { id: "MNU-8", group: "account", label: "Addresses", link: "/account/addresses", order: 3 },
-  { id: "MNU-9", group: "account", label: "Wallet", link: "/account/wallet", order: 4 },
-  { id: "MNU-10", group: "account", label: "Saved Cards", link: "/account/cards", order: 5 },
-  { id: "MNU-11", group: "account", label: "Logout", link: "/logout", order: 6 },
-];
+const MENU_ITEMS_SEED: MenuItem[] = [];
 
 const GROUP_LABEL: Record<MenuGroup, string> = { mobile: "Mobile App Menu", account: "User Account Menu" };
 const emptyForm = { group: "mobile" as MenuGroup, label: "", link: "" };

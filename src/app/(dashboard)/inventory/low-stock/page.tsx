@@ -35,7 +35,7 @@ export default function LowStockPage() {
         if (!cancelled) setLowStock(res.items);
       })
       .catch(() => {
-        if (!cancelled) toast.info("Using demo data — backend unreachable");
+        if (!cancelled) toast.error("Could not load data — backend unreachable");
       })
       .finally(() => {
         if (!cancelled) setLoading(false);

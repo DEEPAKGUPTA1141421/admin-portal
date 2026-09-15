@@ -28,7 +28,7 @@ export default function ReturnApprovalPage() {
             .filter((r) => r.status === "pending")
         )
       )
-      .catch(() => toast.info("Using demo data — backend unreachable"))
+      .catch(() => toast.error("Could not load data — backend unreachable"))
       .finally(() => setLoading(false));
   }
 

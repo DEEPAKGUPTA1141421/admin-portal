@@ -24,27 +24,16 @@ interface Payout {
   status: "pending" | "processing" | "paid" | "failed" | "on_hold";
 }
 
-const EXTRA_PAYOUTS: Payout[] = [
-  { id: "PYT-EXTRA-1", sellerName: "Nova Emporium", paidAt: null, netPayable: 48250, status: "processing" },
-  { id: "PYT-EXTRA-2", sellerName: "Sunrise Bazaar", paidAt: null, netPayable: 132400, status: "failed" },
-  { id: "PYT-EXTRA-3", sellerName: "Classic Traders", paidAt: null, netPayable: 27800, status: "pending" },
-  { id: "PYT-EXTRA-4", sellerName: "Elite Mart", paidAt: null, netPayable: 96150, status: "failed" },
-  { id: "PYT-EXTRA-5", sellerName: "Royal Enterprises", paidAt: null, netPayable: 15600, status: "pending" },
-  { id: "PYT-EXTRA-6", sellerName: "Star Retail", paidAt: null, netPayable: 210300, status: "processing" },
-  { id: "PYT-EXTRA-7", sellerName: "Urban Store", paidAt: null, netPayable: 8900, status: "failed" },
-];
-
 export default function PayoutsPage() {
-  const [payouts, setPayouts] = useState<Payout[]>(() => [
-    ...SETTLEMENTS_DATA.filter((s) => s.status === "paid").map((s) => ({
+  const [payouts, setPayouts] = useState<Payout[]>(() =>
+    SETTLEMENTS_DATA.filter((s) => s.status === "paid").map((s) => ({
       id: s.id,
       sellerName: s.sellerName,
       paidAt: s.paidAt,
       netPayable: s.netPayable,
       status: s.status as Payout["status"],
-    })),
-    ...EXTRA_PAYOUTS,
-  ]);
+    }))
+  );
   const [processTarget, setProcessTarget] = useState<Payout | null>(null);
 
   const kpis = useMemo(() => {

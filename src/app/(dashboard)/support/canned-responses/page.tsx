@@ -26,38 +26,7 @@ interface CannedResponse {
   body: string;
 }
 
-const INITIAL_RESPONSES: CannedResponse[] = [
-  {
-    id: "CR-1",
-    title: "Order Delay Apology",
-    category: "Order Issue",
-    body: "We're sorry for the delay in your order. Our team is actively working with the courier partner to expedite delivery, and we'll keep you updated on the status.",
-  },
-  {
-    id: "CR-2",
-    title: "Refund Processed",
-    category: "Refund Delay",
-    body: "Your refund has been processed successfully and should reflect in your original payment method within 5-7 business days.",
-  },
-  {
-    id: "CR-3",
-    title: "Requesting More Details",
-    category: "General",
-    body: "Could you please share a few more details (order number, screenshots, or a brief description) so we can investigate this further?",
-  },
-  {
-    id: "CR-4",
-    title: "Seller Payout Timeline",
-    category: "Seller Complaint",
-    body: "Payouts are processed on a rolling 14-day cycle after order delivery confirmation. You can track your settlement status under Finance > Payouts.",
-  },
-  {
-    id: "CR-5",
-    title: "Damaged Product Replacement",
-    category: "Product Quality",
-    body: "We're sorry to hear the product arrived damaged. We've initiated a free replacement, which should be dispatched within 2 business days.",
-  },
-];
+const INITIAL_RESPONSES: CannedResponse[] = [];
 
 const CATEGORIES = ["General", "Order Issue", "Refund Delay", "Product Quality", "Delivery Delay", "Account Issue", "Seller Complaint"];
 

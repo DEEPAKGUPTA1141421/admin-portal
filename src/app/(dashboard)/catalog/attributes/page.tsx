@@ -34,20 +34,7 @@ interface Attribute {
   productCount: number;
 }
 
-const SEED: Attribute[] = [
-  { id: "ATTR-1", name: "Color", type: "color", values: ["Red", "Blue", "Black", "White", "Green"], status: "active", productCount: 118 },
-  { id: "ATTR-2", name: "Size", type: "select", values: ["XS", "S", "M", "L", "XL", "XXL"], status: "active", productCount: 96 },
-  { id: "ATTR-3", name: "Material", type: "select", values: ["Cotton", "Polyester", "Leather", "Wool", "Silk"], status: "active", productCount: 74 },
-  { id: "ATTR-4", name: "Storage", type: "select", values: ["64GB", "128GB", "256GB", "512GB"], status: "active", productCount: 42 },
-  { id: "ATTR-5", name: "RAM", type: "select", values: ["4GB", "8GB", "16GB", "32GB"], status: "active", productCount: 38 },
-  { id: "ATTR-6", name: "Weight", type: "number", values: ["0.5kg", "1kg", "2kg", "5kg"], status: "active", productCount: 29 },
-  { id: "ATTR-7", name: "Warranty", type: "select", values: ["6 Months", "1 Year", "2 Years", "3 Years"], status: "active", productCount: 61 },
-  { id: "ATTR-8", name: "Pattern", type: "select", values: ["Solid", "Striped", "Printed", "Checked"], status: "inactive", productCount: 22 },
-  { id: "ATTR-9", name: "Fit", type: "select", values: ["Slim", "Regular", "Loose"], status: "active", productCount: 55 },
-  { id: "ATTR-10", name: "Flavor", type: "text", values: ["Chocolate", "Vanilla", "Mixed Fruit"], status: "active", productCount: 17 },
-  { id: "ATTR-11", name: "Battery Life", type: "text", values: ["8hrs", "12hrs", "24hrs"], status: "active", productCount: 14 },
-  { id: "ATTR-12", name: "Screen Size", type: "number", values: ["6.1in", "6.5in", "6.7in"], status: "active", productCount: 25 },
-];
+const SEED: Attribute[] = [];
 
 export default function AttributesPage() {
   const [attrs, setAttrs] = useState<Attribute[]>(SEED);

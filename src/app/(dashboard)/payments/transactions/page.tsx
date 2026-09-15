@@ -40,7 +40,7 @@ export default function TransactionsPage() {
         if (!cancelled) setData(res.payments.map(mapPaymentSummaryToPayment));
       })
       .catch(() => {
-        if (!cancelled) toast.info("Using demo data — backend unreachable");
+        if (!cancelled) toast.error("Could not load data — backend unreachable");
       });
     return () => {
       cancelled = true;

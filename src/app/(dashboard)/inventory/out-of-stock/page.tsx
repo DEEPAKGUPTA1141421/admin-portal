@@ -33,7 +33,7 @@ export default function OutOfStockPage() {
         if (!cancelled) setData(res.items);
       })
       .catch(() => {
-        if (!cancelled) toast.info("Using demo data — backend unreachable");
+        if (!cancelled) toast.error("Could not load data — backend unreachable");
       })
       .finally(() => {
         if (!cancelled) setLoading(false);

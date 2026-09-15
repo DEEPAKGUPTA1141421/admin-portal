@@ -44,16 +44,7 @@ function daysAgoIso(n: number) {
   return d.toISOString();
 }
 
-const BLOG_POSTS_SEED: BlogPost[] = [
-  { id: "BLG-1", title: "10 Festive Fashion Trends This Diwali", author: "Ritu Sharma", status: "published", publishedAt: daysAgoIso(3), category: "Fashion", content: "Discover the top festive fashion trends to elevate your Diwali celebrations this year..." },
-  { id: "BLG-2", title: "How to Choose the Right Laptop for Work", author: "Karan Mehta", status: "published", publishedAt: daysAgoIso(10), category: "Electronics", content: "A comprehensive guide to picking the perfect laptop based on your workflow and budget..." },
-  { id: "BLG-3", title: "Monsoon Home Essentials Checklist", author: "Sneha Iyer", status: "draft", publishedAt: null, category: "Home & Living", content: "Get your home ready for the monsoon season with these must-have essentials..." },
-  { id: "BLG-4", title: "Skincare Routine for Every Season", author: "Ayesha Khan", status: "published", publishedAt: daysAgoIso(20), category: "Beauty", content: "Adapt your skincare routine throughout the year with these expert tips..." },
-  { id: "BLG-5", title: "Seller Success Story: Metro Traders", author: "Vikas Rao", status: "published", publishedAt: daysAgoIso(15), category: "Seller Stories", content: "How Metro Traders grew their revenue 3x in one year on our marketplace..." },
-  { id: "BLG-6", title: "Top 5 Smartphones Under ₹20,000", author: "Karan Mehta", status: "draft", publishedAt: null, category: "Electronics", content: "Our pick of the best value-for-money smartphones available right now..." },
-  { id: "BLG-7", title: "Sustainable Shopping: A Buyer's Guide", author: "Ritu Sharma", status: "published", publishedAt: daysAgoIso(30), category: "Lifestyle", content: "Tips for making more sustainable choices while shopping online..." },
-  { id: "BLG-8", title: "Kitchen Organization Hacks", author: "Sneha Iyer", status: "draft", publishedAt: null, category: "Home & Living", content: "Simple hacks to keep your kitchen organized and clutter-free..." },
-];
+const BLOG_POSTS_SEED: BlogPost[] = [];
 
 const emptyForm = { title: "", author: "", status: "draft" as BlogStatus, category: "", content: "" };
 

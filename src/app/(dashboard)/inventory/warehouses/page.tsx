@@ -199,7 +199,7 @@ export default function WarehousesPage() {
         if (live.length > 0) setData(live);
       })
       .catch(() => {
-        if (!cancelled) toast.info("Using demo data — backend unreachable");
+        if (!cancelled) toast.error("Could not load data — backend unreachable");
       })
       .finally(() => {
         if (!cancelled) setLoading(false);

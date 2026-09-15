@@ -26,13 +26,7 @@ interface Agent {
   status: "online" | "away" | "offline";
 }
 
-const INITIAL_AGENTS: Agent[] = [
-  { id: "AGT-1", name: "Ritu Sharma", email: "ritu.sharma@marketplace.example", activeTickets: 8, resolvedThisWeek: 34, avgResponseTime: "12 min", status: "online" },
-  { id: "AGT-2", name: "Karan Mehta", email: "karan.mehta@marketplace.example", activeTickets: 5, resolvedThisWeek: 28, avgResponseTime: "9 min", status: "online" },
-  { id: "AGT-3", name: "Sneha Iyer", email: "sneha.iyer@marketplace.example", activeTickets: 11, resolvedThisWeek: 41, avgResponseTime: "15 min", status: "away" },
-  { id: "AGT-4", name: "Vikas Rao", email: "vikas.rao@marketplace.example", activeTickets: 3, resolvedThisWeek: 19, avgResponseTime: "18 min", status: "offline" },
-  { id: "AGT-5", name: "Ayesha Khan", email: "ayesha.khan@marketplace.example", activeTickets: 7, resolvedThisWeek: 30, avgResponseTime: "11 min", status: "online" },
-];
+const INITIAL_AGENTS: Agent[] = [];
 
 export default function SupportAgentsPage() {
   const [agents, setAgents] = useState<Agent[]>(INITIAL_AGENTS);

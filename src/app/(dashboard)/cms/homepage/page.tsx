@@ -31,13 +31,7 @@ interface HomeSection {
   state: SectionState;
 }
 
-const SECTIONS_SEED: HomeSection[] = [
-  { id: "SEC-1", name: "Hero Banner", description: "Full-width rotating promotional banner at the top of the homepage.", active: true, order: 1, state: "published" },
-  { id: "SEC-2", name: "Featured Categories", description: "Grid of top-level categories with imagery.", active: true, order: 2, state: "published" },
-  { id: "SEC-3", name: "Deals of the Day", description: "Time-boxed discounted products carousel.", active: true, order: 3, state: "preview" },
-  { id: "SEC-4", name: "Top Sellers", description: "Best performing products ranked by recent sales.", active: false, order: 4, state: "draft" },
-  { id: "SEC-5", name: "New Arrivals", description: "Most recently published products across the catalog.", active: true, order: 5, state: "published" },
-];
+const SECTIONS_SEED: HomeSection[] = [];
 
 const PREVIEW_CATEGORIES = CATEGORIES_DATA.slice(0, 6);
 const PREVIEW_PRODUCTS = PRODUCTS_DATA.slice(0, 8);

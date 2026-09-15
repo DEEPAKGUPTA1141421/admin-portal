@@ -26,43 +26,7 @@ interface FooterColumn {
   links: FooterLink[];
 }
 
-const FOOTER_COLUMNS_SEED: FooterColumn[] = [
-  {
-    id: "COL-1",
-    columnTitle: "About",
-    links: [
-      { id: "LNK-1", label: "About Us", url: "/about" },
-      { id: "LNK-2", label: "Careers", url: "/careers" },
-      { id: "LNK-3", label: "Press", url: "/press" },
-    ],
-  },
-  {
-    id: "COL-2",
-    columnTitle: "Customer Service",
-    links: [
-      { id: "LNK-4", label: "Contact Us", url: "/contact" },
-      { id: "LNK-5", label: "Help Center", url: "/help" },
-      { id: "LNK-6", label: "Returns & Refunds", url: "/returns" },
-      { id: "LNK-7", label: "Shipping Policy", url: "/shipping-policy" },
-    ],
-  },
-  {
-    id: "COL-3",
-    columnTitle: "Policies",
-    links: [
-      { id: "LNK-8", label: "Terms & Conditions", url: "/terms" },
-      { id: "LNK-9", label: "Privacy Policy", url: "/privacy" },
-    ],
-  },
-  {
-    id: "COL-4",
-    columnTitle: "Sell With Us",
-    links: [
-      { id: "LNK-10", label: "Become a Seller", url: "/sell-with-us" },
-      { id: "LNK-11", label: "Seller Login", url: "/seller/login" },
-    ],
-  },
-];
+const FOOTER_COLUMNS_SEED: FooterColumn[] = [];
 
 export default function FooterCmsPage() {
   const [columns, setColumns] = useState<FooterColumn[]>(FOOTER_COLUMNS_SEED);

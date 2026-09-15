@@ -21,14 +21,7 @@ interface NotificationRule {
   active: boolean;
 }
 
-const INITIAL_RULES: NotificationRule[] = [
-  { id: "RULE-1", event: "Order Delivered", channel: "email", delayMinutes: 0, active: true },
-  { id: "RULE-2", event: "Order Delivered", channel: "push", delayMinutes: 60, active: true },
-  { id: "RULE-3", event: "Payment Failed", channel: "sms", delayMinutes: 0, active: true },
-  { id: "RULE-4", event: "Cart Abandoned", channel: "email", delayMinutes: 120, active: false },
-  { id: "RULE-5", event: "Seller Suspended", channel: "email", delayMinutes: 0, active: true },
-  { id: "RULE-6", event: "Return Approved", channel: "sms", delayMinutes: 15, active: true },
-];
+const INITIAL_RULES: NotificationRule[] = [];
 
 export default function NotificationRulesPage() {
   const [rules, setRules] = useState<NotificationRule[]>(INITIAL_RULES);

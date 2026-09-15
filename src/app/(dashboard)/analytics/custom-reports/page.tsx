@@ -30,11 +30,7 @@ interface RecentReport {
   format: string;
 }
 
-const INITIAL_REPORTS: RecentReport[] = [
-  { id: "RPT-1", name: "Orders Report — Last 30 Days", generatedAt: new Date(Date.now() - 86400000).toISOString(), format: "CSV" },
-  { id: "RPT-2", name: "Seller Performance Q3", generatedAt: new Date(Date.now() - 3 * 86400000).toISOString(), format: "Excel" },
-  { id: "RPT-3", name: "Customer Spend Summary", generatedAt: new Date(Date.now() - 7 * 86400000).toISOString(), format: "PDF" },
-];
+const INITIAL_REPORTS: RecentReport[] = [];
 
 export default function CustomReportsPage() {
   const [preset, setPreset] = useState("30d");

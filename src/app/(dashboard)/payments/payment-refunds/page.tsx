@@ -28,7 +28,7 @@ export default function PaymentRefundsPage() {
     ]).then(([reversed, reversedFailed]) => {
       if (cancelled) return;
       if (reversed.status === "rejected" && reversedFailed.status === "rejected") {
-        toast.info("Using demo data — backend unreachable");
+        toast.error("Could not load data — backend unreachable");
         return;
       }
       const rows = [
